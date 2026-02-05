@@ -1,7 +1,7 @@
-// Dungeons & Agents - Game Engine
-// Starter skeleton for lessons
+// 地下城与智能体 - 游戏引擎
+// 课程的入门骨架
 
-// ============ GAME STATE ============
+// ============ 游戏状态 ============
 
 let rooms = {}
 let items = {}
@@ -17,7 +17,7 @@ let talkingToId = null
 let conversationState = {}
 let storyFlags = new Set()
 
-// ============ DATA LOADING ============
+// ============ 数据加载 ============
 
 async function loadRooms() {
   const response = await fetch("data/rooms.json")
@@ -47,15 +47,15 @@ async function loadEnemies() {
   }
 }
 
-// ============ COMMAND PROCESSING ============
+// ============ 命令处理 ============
 
 function processCommand(input) {
   const command = input.trim().toLowerCase()
 
-  // Echo the command
+  // 回显命令
   print(`> ${input}`, "command")
 
-  // If in dialogue mode, treat input as message (unless it's leave/go)
+  // 如果在对话模式，将输入视为消息（除非是 leave/go）
   if (talkingTo) {
     if (command === "leave") {
       leaveConversation()
@@ -67,40 +67,40 @@ function processCommand(input) {
       goDirection(direction)
       return
     }
-    // Treat as message to NPC
+    // 视为对 NPC 的消息
     sayTo(input)
     return
   }
 
-  // Basic commands
+  // 基本命令
   if (command === "help") {
     print(
-      "Available commands: help, look, go, take, inventory, attack, talk, leave",
+      "可用命令：help, look, go, take, inventory, attack, talk, leave",
     )
   } else if (command === "look") {
     const room = rooms[currentRoom]
     if (room) {
       print(room.description)
 
-      // Show items in room
+      // 显示房间中的物品
       const roomItems = Object.entries(items)
         .filter(([id, item]) => item.room === currentRoom)
         .map(([id, item]) => item.name)
       if (roomItems.length > 0) {
-        print(`Items: ${roomItems.join(", ")}`)
+        print(`物品：${roomItems.join(", ")}`)
       }
 
-      // Show enemies in room
+      // 显示房间中的敌人
       const roomEnemies = Object.entries(enemies)
         .filter(([id, enemy]) => enemy.room === currentRoom && enemy.hp > 0)
-        .map(([id, enemy]) => `${enemy.name} (${enemy.hp} hp)`)
+        .map(([id, enemy]) => `${enemy.name} (${enemy.hp} 生命值)`)
       if (roomEnemies.length > 0) {
-        print(`Enemies: ${roomEnemies.join(", ")}`)
+        print(`敌人：${roomEnemies.join(", ")}`)
       }
 
       const exitList = Object.keys(room.exits).join(", ")
       if (exitList) {
-        print(`Exits: ${exitList}`)
+        print(`出口：${exitList}`)
       }
     }
   } else if (command.startsWith("go ")) {
@@ -119,14 +119,14 @@ function processCommand(input) {
   } else if (command === "leave") {
     leaveConversation()
   } else if (command.startsWith("say ")) {
-    const message = input.slice(4) // Use 'input' to preserve case
+    const message = input.slice(4) // 使用 'input' 保留大小写
     sayTo(message)
   } else {
-    print("I don't understand that.", "error")
+    print("我不理解那个命令。", "error")
   }
 }
 
-// ============ MOVEMENT ============
+// ============ 移动 ============
 
 function goDirection(direction) {
   const room = rooms[currentRoom]
@@ -136,55 +136,55 @@ function goDirection(direction) {
     updateUI()
     const newRoom = rooms[currentRoom]
     if (newRoom) {
-      print(`You go ${direction}.`)
+      print(`你向${direction}走。`)
       print(newRoom.description)
 
-      // Show characters in room
+      // 显示房间中的角色
       const roomCharacters = Object.entries(characters)
         .filter(([id, char]) => char.location === currentRoom)
         .map(([id, char]) => char.name)
       if (roomCharacters.length > 0) {
-        print(`Talk to: ${roomCharacters.join(", ")}`)
+        print(`与以下角色对话：${roomCharacters.join(", ")}`)
       }
 
-      // Show items in room
+      // 显示房间中的物品
       const roomItems = Object.entries(items)
         .filter(([id, item]) => item.room === currentRoom)
         .map(([id, item]) => item.name)
       if (roomItems.length > 0) {
-        print(`Items: ${roomItems.join(", ")}`)
+        print(`物品：${roomItems.join(", ")}`)
       }
 
-      // Show enemies in room
+      // 显示房间中的敌人
       const roomEnemies = Object.entries(enemies)
         .filter(([id, enemy]) => enemy.room === currentRoom && enemy.hp > 0)
-        .map(([id, enemy]) => `${enemy.name} (${enemy.hp} hp)`)
+        .map(([id, enemy]) => `${enemy.name} (${enemy.hp} 生命值)`)
       if (roomEnemies.length > 0) {
-        print(`Enemies: ${roomEnemies.join(", ")}`)
+        print(`敌人：${roomEnemies.join(", ")}`)
       }
 
       const exitList = Object.keys(newRoom.exits).join(", ")
       if (exitList) {
-        print(`Exits: ${exitList}`)
+        print(`出口：${exitList}`)
       }
     }
   } else {
-    print("You can't go that way.", "error")
+    print("你不能往那个方向走。", "error")
   }
 }
 
-// ============ INVENTORY SYSTEM ============
+// ============ 物品清单系统 ============
 
 function take(itemName) {
-  // Find item in current room
+  // 在当前房间查找物品
   let entry
   if (itemName === "") {
-    // No target specified - take first item in room
+    // 未指定目标 - 拾取房间中的第一个物品
     entry = Object.entries(items).find(
       ([id, item]) => item.room === currentRoom,
     )
   } else {
-    // Target specified - match by name (case-insensitive, partial match)
+    // 指定了目标 - 按名称匹配（不区分大小写，部分匹配）
     entry = Object.entries(items).find(
       ([id, item]) =>
         item.room === currentRoom &&
@@ -194,103 +194,103 @@ function take(itemName) {
 
   if (entry) {
     const [id, item] = entry
-    item.room = null // Remove from room
-    inventory.push(id) // Add to inventory
-    print(`You pick up the ${item.name}.`, "success")
+    item.room = null // 从房间移除
+    inventory.push(id) // 添加到物品清单
+    print(`你拾起了 ${item.name}。`, "success")
     updateInventory()
     updateTakeButton()
     showItemsBar()
   } else {
-    print("You don't see that here.", "error")
+    print("你在这里看不到那个东西。", "error")
   }
 }
 
 function showInventory() {
   if (inventory.length === 0) {
-    print("You are carrying nothing.")
+    print("你什么都没有携带。")
   } else {
     const carried = inventory.map((id) => items[id].name).join(", ")
-    print(`You are carrying: ${carried}`)
+    print(`你携带了：${carried}`)
   }
 }
 
-// ============ COMBAT SYSTEM ============
+// ============ 战斗系统 ============
 
 function attack() {
-  // Find enemy in current room with hp > 0
+  // 在当前房间查找生命值大于 0 的敌人
   const entry = Object.entries(enemies).find(
     ([id, enemy]) => enemy.room === currentRoom && enemy.hp > 0,
   )
 
   if (!entry) {
-    print("There's nothing to attack here.", "error")
+    print("这里没有什么可以攻击的。", "error")
     return
   }
 
   const [id, enemy] = entry
 
-  // Check for weapon damage bonus
+  // 检查武器伤害加成
   const weapon = inventory.find((itemId) => items[itemId].damage)
   const playerDamage = weapon ? items[weapon].damage : 5
 
-  // Player attacks
+  // 玩家攻击
   enemy.hp -= playerDamage
-  print(`You attack the ${enemy.name} for ${playerDamage} damage!`, "combat")
+  print(`你攻击了 ${enemy.name}，造成 ${playerDamage} 点伤害！`, "combat")
 
   if (enemy.hp <= 0) {
-    print(`The ${enemy.name} is defeated!`, "success")
-    enemy.room = null // Remove enemy from room
+    print(`${enemy.name} 被击败了！`, "success")
+    enemy.room = null // 将敌人从房间移除
     updateAttackButton()
     showEncounterBox()
     return
   }
 
-  print(`The ${enemy.name} has ${enemy.hp} hp left.`, "combat")
+  print(`${enemy.name} 还剩 ${enemy.hp} 点生命值。`, "combat")
 
-  // Enemy attacks back
+  // 敌人反击
   playerHp -= enemy.damage
-  print(`The ${enemy.name} attacks you for ${enemy.damage} damage!`, "combat")
+  print(`${enemy.name} 攻击了你，造成 ${enemy.damage} 点伤害！`, "combat")
 
   updateHpBar()
 
   if (playerHp <= 0) {
-    print("You have been slain. Game over.", "error")
-    print("Refresh to restart.")
+    print("你被击败了。游戏结束。", "error")
+    print("刷新页面重新开始。")
     commandInput.disabled = true
     return
   }
 
-  print(`You have ${playerHp} hp left.`, "combat")
+  print(`你还剩 ${playerHp} 点生命值。`, "combat")
 }
 
-// ============ NPC CONVERSATION SYSTEM ============
+// ============ NPC 对话系统 ============
 
 function talk(name) {
-  // Find NPCs in current room
+  // 查找当前房间中的 NPC
   const npcsInRoom = Object.entries(characters).filter(
     ([id, c]) => c.location === currentRoom,
   )
 
   if (npcsInRoom.length === 0) {
-    // Easter egg: talk to the goblin
+    // 复活节彩蛋：与地精对话
     const goblin = Object.entries(enemies).find(
       ([id, e]) => id === "goblin" && e.room === currentRoom && e.hp > 0
     )
     if (goblin) {
-      print(`Goblin: "GRAK SNORK BLURGLE!! MEEP GRONK SKREEEE!!"`, "npc")
+      print(`地精："GRAK SNORK BLURGLE!! MEEP GRONK SKREEEE!!"`, "npc")
       return
     }
 
-    print("There's no one here to talk to.", "error")
+    print("这里没有人可以对话。", "error")
     return
   }
 
   let entry
   if (name === "") {
-    // No target specified - talk to first NPC in room
+    // 未指定目标 - 与房间中的第一个 NPC 对话
     entry = npcsInRoom[0]
   } else {
-    // Match by name or ID (case-insensitive, partial match)
+    // 按名称或 ID 匹配（不区分大小写，部分匹配）
     entry = npcsInRoom.find(
       ([id, c]) =>
         c.name.toLowerCase().includes(name.toLowerCase()) ||
@@ -299,7 +299,7 @@ function talk(name) {
   }
 
   if (!entry) {
-    print("I don't see anyone by that name here.", "error")
+    print("我在这里看不到叫那个名字的人。", "error")
     return
   }
 
@@ -307,19 +307,19 @@ function talk(name) {
   talkingTo = character
   talkingToId = id
 
-  // Only show portrait if encounter box is hidden (already shows character info)
+  // 只有在遭遇框隐藏时才显示肖像（已经显示角色信息）
   if (encounterBox.hidden) {
     showPortrait(character)
   }
-  print(`${character.name}: "${character.greeting}"`)
+  print(`${character.name}："${character.greeting}"`)
   print("")
-  print("Type your message, or 'leave' to end conversation.")
+  print("输入你的消息，或输入 'leave' 结束对话。")
 }
 
 function leaveConversation() {
   if (!talkingTo) return
 
-  print(`You stop talking to ${talkingTo.name}.`)
+  print(`你停止与 ${talkingTo.name} 对话。`)
   talkingTo = null
   talkingToId = null
   hidePortrait()
@@ -327,11 +327,11 @@ function leaveConversation() {
 
 async function sayTo(message) {
   if (!talkingTo) {
-    print("You're not talking to anyone.", "error")
+    print("你没有和任何人对话。", "error")
     return
   }
 
-  print(`You: "${message}"`)
+  print(`你："${message}"`)
 
   try {
     const res = await fetch("/api/talk", {
@@ -344,17 +344,17 @@ async function sayTo(message) {
     })
 
     const data = await res.json()
-    print(`${talkingTo.name}: "${data.response}"`, "npc")
+    print(`${talkingTo.name}："${data.response}"`, "npc")
   } catch (err) {
     console.error("Say error:", err)
-    // Fallback to greeting if API fails
-    print(`${talkingTo.name}: "${talkingTo.greeting}"`, "npc")
+    // 如果 API 失败，回退到问候语
+    print(`${talkingTo.name}："${talkingTo.greeting}"`, "npc")
   }
 }
 
-// ============ EVENT HANDLERS ============
+// ============ 事件处理器 ============
 
-// Handle input
+// 处理输入
 commandInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     const input = commandInput.value
@@ -365,10 +365,10 @@ commandInput.addEventListener("keydown", (e) => {
   }
 })
 
-// Focus input on click anywhere
+// 点击任意位置聚焦输入框
 document.addEventListener("click", () => commandInput.focus())
 
-// Button handlers
+// 按钮处理器
 document.querySelectorAll(".pixel-btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.stopPropagation()
@@ -379,8 +379,8 @@ document.querySelectorAll(".pixel-btn").forEach((btn) => {
   })
 })
 
-// Keyboard shortcuts (when not typing in input)
-// Disabled until commands are implemented
+// 键盘快捷键（当不在输入框中输入时）
+// 在命令实现之前禁用
 // document.addEventListener("keydown", (e) => {
 //   if (document.activeElement === commandInput) return
 //   const shortcuts = { l: "look", i: "inventory", h: "help", a: "attack" }
@@ -390,13 +390,13 @@ document.querySelectorAll(".pixel-btn").forEach((btn) => {
 //   }
 // })
 
-// Portrait close button
+// 肖像关闭按钮
 portraitClose.addEventListener("click", (e) => {
   e.stopPropagation()
   leaveConversation()
 })
 
-// Talk button - talk to first NPC in room
+// 对话按钮 - 与房间中的第一个 NPC 对话
 talkBtn.addEventListener("click", (e) => {
   e.stopPropagation()
   const npc = Object.values(characters).find((c) => c.location === currentRoom)
@@ -406,7 +406,7 @@ talkBtn.addEventListener("click", (e) => {
   }
 })
 
-// Take button - take first item in room
+// 拾取按钮 - 拾取房间中的第一个物品
 takeBtn.addEventListener("click", (e) => {
   e.stopPropagation()
   const item = Object.values(items).find((i) => i.room === currentRoom)
@@ -416,9 +416,9 @@ takeBtn.addEventListener("click", (e) => {
   }
 })
 
-// Arrow key navigation
+// 方向键导航
 document.addEventListener("keydown", (e) => {
-  // Only capture arrows when input is empty (so typing still works)
+  // 只在输入框为空时捕获方向键（以便输入仍能正常工作）
   if (document.activeElement === commandInput && commandInput.value !== "")
     return
 
@@ -435,7 +435,7 @@ document.addEventListener("keydown", (e) => {
   }
 })
 
-// ============ INITIALIZATION ============
+// ============ 初始化 ============
 
 async function init() {
   await loadRooms()
@@ -446,18 +446,18 @@ async function init() {
   updateUI()
   enableCommandButtons()
 
-  print("Welcome to Dungeons & Agents!")
+  print("欢迎来到地下城与智能体！")
   print("")
   const room = rooms[currentRoom]
   if (room) {
     print(room.description)
 
-    // Show items in the starting room
+    // 显示起始房间中的物品
     const roomItems = Object.entries(items)
       .filter(([id, item]) => item.room === currentRoom)
       .map(([id, item]) => item.name)
     if (roomItems.length > 0) {
-      print(`Items: ${roomItems.join(", ")}`)
+      print(`物品：${roomItems.join(", ")}`)
     }
   }
 }

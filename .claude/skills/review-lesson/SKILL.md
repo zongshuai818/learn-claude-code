@@ -1,59 +1,59 @@
 ---
 name: review-lesson
-description: Review a lesson for accuracy against Claude Code docs
-argument-hint: "<lesson-file or number>"
+description: 根据 Claude Code 官方文档审查课程准确性
+argument-hint: "<课程文件或编号>"
 ---
 
-# Review Lesson
+# 审查课程
 
-Review the lesson **$ARGUMENTS** for accuracy against official Claude Code documentation.
+根据官方 Claude Code 文档审查 **$ARGUMENTS** 的准确性。
 
-## Steps
+## 步骤
 
-1. **Read the lesson**
+1. **阅读课程**
 
-   - If a number is given (e.g., "04"), read `learn-claude/04-*.md`
-   - If a file path is given, read that file
+   - 如果给出编号（例如，"04"），读取 `learn-claude/04-*.md`
+   - 如果给出文件路径，读取该文件
 
-2. **Check against official docs**
+2. **对照官方文档检查**
 
-   - Fetch https://docs.anthropic.com/en/docs/claude-code for reference
-   - Also check https://docs.anthropic.com/en/docs/claude-code/cli-usage
-   - Cross-reference any claims in the lesson
+   - 从 https://docs.anthropic.com/en/docs/claude-code 获取参考
+   - 同时检查 https://docs.anthropic.com/en/docs/claude-code/cli-usage
+   - 交叉引用课程中的任何声明
 
-3. **Review for**
-   - **Accuracy** - Is the information correct?
-   - **Completeness** - Is anything important missing?
-   - **Currency** - Is anything outdated?
-   - **Clarity** - Is it easy to understand?
+3. **审查**
+   - **准确性** - 信息正确吗？
+   - **完整性** - 有什么重要的遗漏吗？
+   - **时效性** - 有什么过时的吗？
+   - **清晰度** - 容易理解吗？
 
-## Output Format
+## 输出格式
 
 ```markdown
-## Lesson Review: [Title]
+## 课程审查：[标题]
 
-### Accuracy
+### 准确性
 
-- ✅ Correct: [list accurate claims]
-- ❌ Incorrect: [list inaccuracies with corrections]
-- ⚠️ Outdated: [list outdated info with updates]
+- ✅ 正确：[列出准确的声明]
+- ❌ 不正确：[列出错误及更正]
+- ⚠️ 过时：[列出过时的信息及更新]
 
-### Missing
+### 遗漏
 
-- [Important topics not covered]
+- [未涵盖的重要主题]
 
-### Suggestions
+### 建议
 
-- [Improvements to make]
+- [改进建议]
 
-### Verdict
+### 结论
 
-[PASS / NEEDS UPDATES / MAJOR REVISION NEEDED]
+[通过 / 需要更新 / 需要重大修订]
 ```
 
-## Guidelines
+## 指南
 
-- Be specific about what's wrong and how to fix it
-- Reference the official docs for corrections
-- Note if something couldn't be verified
-- Prioritize factual accuracy over style
+- 具体说明有什么问题以及如何修复
+- 引用官方文档进行更正
+- 注意如果有无法验证的内容
+- 优先考虑事实准确性而非风格

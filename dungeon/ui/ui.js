@@ -1,7 +1,7 @@
-// Dungeons & Agents - UI Management
-// Handles all DOM updates and visual elements
+// 地下城与智能体 - UI 管理
+// 处理所有 DOM 更新和视觉元素
 
-// DOM Element References
+// DOM 元素引用
 const output = document.getElementById("output")
 const commandInput = document.getElementById("command")
 const hpBar = document.getElementById("hp-bar")
@@ -20,7 +20,7 @@ const portraitName = document.getElementById("portrait-name")
 const portraitTrait = document.getElementById("portrait-trait")
 const portraitClose = document.getElementById("portrait-close")
 
-// Map configuration - room positions on grid
+// 地图配置 - 房间在网格上的位置
 const mapLayout = {
   grid: [
     [null, null, null],
@@ -29,7 +29,7 @@ const mapLayout = {
   ],
 }
 
-// Display text in the terminal
+// 在终端中显示文本
 function print(text, className = "") {
   const p = document.createElement("p")
   p.textContent = text
@@ -38,7 +38,7 @@ function print(text, className = "") {
   output.scrollTop = output.scrollHeight
 }
 
-// Update HP bar with heart icons
+// 使用心形图标更新生命值条
 function updateHpBar() {
   hpBar.innerHTML = ""
   const hearts = 10
@@ -65,37 +65,37 @@ function updateHpBar() {
   hpText.textContent = `${playerHp}/${maxHp}`
 }
 
-// Update location display
+// 更新位置显示
 function updateLocation() {
   const room = rooms[currentRoom]
   if (room) {
     locationName.textContent = room.name
     visitedRooms.add(currentRoom)
   } else {
-    locationName.textContent = "Unknown"
+    locationName.textContent = "未知"
   }
 }
 
-// Get icon for item
+// 获取物品图标
 function getItemIcon(itemName) {
   const name = itemName.toLowerCase()
-  if (name.includes("sword")) return "⚔"
-  if (name.includes("key")) return "🗝"
-  if (name.includes("torch")) return "🔥"
-  if (name.includes("potion")) return "🧪"
-  if (name.includes("shield")) return "🛡"
-  if (name.includes("gem") || name.includes("jewel")) return "💎"
+  if (name.includes("剑")) return "⚔"
+  if (name.includes("钥匙")) return "🗝"
+  if (name.includes("火把")) return "🔥"
+  if (name.includes("药水")) return "🧪"
+  if (name.includes("盾牌")) return "🛡"
+  if (name.includes("宝石") || name.includes("珠宝")) return "💎"
   return "◆"
 }
 
-// Update inventory display
+// 更新物品清单显示
 function updateInventory() {
   inventoryList.innerHTML = ""
 
   if (inventory.length === 0) {
     const li = document.createElement("li")
     li.className = "inventory-empty"
-    li.textContent = "Empty"
+    li.textContent = "空"
     inventoryList.appendChild(li)
   } else {
     inventory.forEach((id) => {
@@ -111,7 +111,7 @@ function updateInventory() {
   }
 }
 
-// Update attack button state
+// 更新攻击按钮状态
 function updateAttackButton() {
   const hasEnemy = Object.values(enemies).some(
     (e) => e.room === currentRoom && e.hp > 0,
@@ -119,7 +119,7 @@ function updateAttackButton() {
   attackBtn.disabled = !hasEnemy
 }
 
-// Update talk button state
+// 更新对话按钮状态
 function updateTalkButton() {
   const hasNPC = Object.values(characters).some(
     (c) => c.location === currentRoom,
@@ -127,7 +127,7 @@ function updateTalkButton() {
   talkBtn.disabled = !hasNPC
 }
 
-// Update take button state
+// 更新拾取按钮状态
 function updateTakeButton() {
   const hasItems = Object.values(items).some(
     (item) => item.location === currentRoom,
@@ -135,14 +135,14 @@ function updateTakeButton() {
   takeBtn.disabled = !hasItems
 }
 
-// Enable basic action buttons (look, help, inventory)
+// 启用基本操作按钮（查看、帮助、物品清单）
 function enableBasicButtons() {
   document.querySelectorAll('.pixel-btn[data-cmd="look"], .pixel-btn[data-cmd="help"], .pixel-btn[data-cmd="inventory"]').forEach(btn => {
     btn.disabled = false
   })
 }
 
-// Get map cell HTML for a room
+// 获取房间的地图单元格 HTML
 function getMapCell(roomId) {
   if (!roomId) {
     return '<div class="map-cell empty"></div>'
@@ -163,7 +163,7 @@ function getMapCell(roomId) {
   return `<div class="${className}"></div>`
 }
 
-// Update mini map
+// 更新小地图
 function updateMap() {
   let html = ""
 
@@ -176,7 +176,7 @@ function updateMap() {
   pixelMap.innerHTML = html
 }
 
-// Show character portrait
+// 显示角色肖像
 function showPortrait(character) {
   const charId = Object.keys(characters).find(
     (id) => characters[id].name === character.name,
@@ -195,12 +195,12 @@ function showPortrait(character) {
   portraitContainer.hidden = false
 }
 
-// Hide character portrait
+// 隐藏角色肖像
 function hidePortrait() {
   portraitContainer.hidden = true
 }
 
-// Update all UI elements
+// 更新所有 UI 元素
 function updateUI() {
   updateHpBar()
   updateLocation()

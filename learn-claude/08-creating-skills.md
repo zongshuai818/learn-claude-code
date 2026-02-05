@@ -1,68 +1,70 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 08: Creating Skills
+第 08 课：创建技能
 ═══════════════════════════════════════════════════════════════════
 
-Every time you add a character to the dungeon game, you type the same instructions: ask for personality, knowledge, location, greeting, save to the right file. Skills let you write those instructions once. Claude applies them automatically whenever relevant — or you can invoke them manually with `/skill-name`.
+每次你为地下城游戏添加角色时，都要输入相同的指令：询问个性、知识、位置、问候语，保存到正确的文件。技能让你只写一次这些指令。Claude 在相关时自动应用它们 —— 或者你可以使用 `/skill-name` 手动调用。
 
-## Why Use Skills
+## 为什么要使用技能
 
-Without a skill, you repeat yourself:
+没有技能，你要重复自己：
 
-> "Add a wizard. Ask me for personality, knowledge, location, greeting. Save to data/characters.json."
+> "添加一个巫师。询问我个性、知识、位置、问候语。保存到 data/characters.json。"
 
-With a skill, you just say:
+有了技能，你只需说：
 
-> "Add a wizard to the treasure room."
+> "在藏宝室添加一个巫师。"
 
-Claude recognizes the task matches your `add-character` skill, loads it, and follows your instructions.
+Claude 识别任务与你的 `add-character` 技能匹配，加载它，并遵循你的指令。
 
-## Anatomy of a Skill
+## 技能的构成
 
-**Frontmatter** — metadata between `---` lines:
+**前言** — `---` 行之间的元数据：
 
-- `name` — the skill name (e.g., `add-character`)
-- `description` — tells Claude when to use this skill automatically
-- `argument-hint` — placeholder text for manual invocation
+- `name` — 技能名称（例如，`add-character`）
+- `description` — 告诉 Claude 何时自动使用此技能
+- `argument-hint` — 手动调用的占位符文本
 
-**Body** — the prompt Claude follows. Use `$ARGUMENTS` for user input.
+**正文** — Claude 遵循的提示词。使用 `$ARGUMENTS` 表示用户输入。
 
 ```markdown
 ---
 name: add-character
-description: Add an NPC to the dungeon game
+description: 向地下城游戏添加 NPC
 argument-hint: "<character-name>"
 ---
 
-Create a new NPC named $ARGUMENTS for the dungeon game.
+为地下城游戏创建一个名为 $ARGUMENTS 的新 NPC。
 
-Ask the user for:
+询问用户：
 
-- Personality (2-3 traits)
-- Knowledge (what do they know about the dungeon?)
-- Location (which room are they in?)
-- Greeting (what they say when you first talk to them)
+- 个性（2-3 个特征）
+- 知识（他们对地下城了解什么？）
+- 位置（他们在哪个房间？）
+- 问候语（你第一次与他们交谈时他们说的话）
 
-Save to dungeon/data/characters.json.
+保存到 dungeon/data/characters.json。
 ```
 
-## Skill Locations
+## 技能位置
 
-- `.claude/skills/` — project-specific
-- `~/.claude/skills/` — global (all projects)
+- `.claude/skills/` — 项目特定
+- `~/.claude/skills/` — 全局（所有项目）
 
-## Try It
+## 试试看
 
-1. Ask Claude to create the skill:
+1. 要求 Claude 创建技能：
 
-   > Create a Claude Code skill at .claude/skills/add-character/SKILL.md that adds NPCs to the dungeon game. It should ask for personality, knowledge, location, and greeting, then save to data/characters.json.
+   > 在 .claude/skills/add-character/SKILL.md 创建一个 Claude Code 技能，向地下城游戏添加 NPC。它应该询问个性、知识、位置和问候语，然后保存到 data/characters.json。
    >
-   > - It should also create a pixel art for the character in ui/portraits.js.
-   > - The character's name, portrait, and description should be displayed in the Portrait Display box on room entry if the character is present.
+   > - 它还应该在 ui/portraits.js 中为角色创建像素艺术。
+   > - 如果角色存在，角色的名称、肖像和描述应在进入房间时显示在肖像显示框中。
 
-2. Test auto-invocation — just describe what you want:
+2. 测试自动调用 —— 只需描述你想要什么：
 
-   > Add a wizard character to the secret garden. They should be wise and guide the player to the treasure room.
+   > 在秘密花园添加一个巫师角色。他们应该很睿智，引导玩家前往藏宝室。
 
-3. Before we continue, let's enable the Talk Button, so we can interact with the characters:
+3. 在继续之前，让我们启用对话按钮，以便我们可以与角色互动：
 
-   > Enable the Talk Button in the Actions Section when a character is in the room.
+   > 当房间中有角色时，在操作区启用对话按钮。
+
+完成后告诉我，或如果你有问题！

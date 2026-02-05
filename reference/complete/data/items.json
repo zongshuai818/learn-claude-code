@@ -1,34 +1,34 @@
 {
   "rusty-sword": {
-    "name": "Rusty Sword",
-    "description": "An old sword, covered in rust but still sharp enough to be useful.",
+    "name": "生锈的剑",
+    "description": "一把旧剑，布满锈迹但仍然足够锋利可以使用。",
     "room": "cave-entrance",
     "damage": 10
   },
   "ancient-torch": {
-    "name": "Ancient Torch",
-    "description": "A torch that flickers with an eternal flame.",
+    "name": "古老火把",
+    "description": "一个闪烁着永恒火焰的火把。",
     "room": "narrow-tunnel"
   },
   "health-potion": {
-    "name": "Health Potion",
-    "description": "A red potion that smells of herbs. It looks like it could restore health.",
+    "name": "生命药水",
+    "description": "一瓶红色的药水，散发着草药的气味。看起来可以恢复生命值。",
     "room": "treasure-room",
     "heals": 30
   },
   "golden-key": {
-    "name": "Golden Key",
-    "description": "A ornate golden key. It must unlock something important.",
+    "name": "金钥匙",
+    "description": "一把华丽的金钥匙。它一定能打开什么重要的东西。",
     "room": "underground-lake"
   },
   "magic-gem": {
-    "name": "Magic Gem",
-    "description": "A glowing gemstone that pulses with magical energy.",
+    "name": "魔法宝石",
+    "description": "一颗发光的宝石，脉动着魔法能量。",
     "room": "secret-garden"
   },
   "legendary-sword": {
-    "name": "Legendary Sword",
-    "description": "A magnificent blade forged by ancient masters. Its edge gleams with otherworldly power.",
+    "name": "传奇剑",
+    "description": "一把由古代大师锻造的 magnificent 剑。它的刃口闪烁着超凡的力量。",
     "room": "secret-garden",
     "damage": 10
   }

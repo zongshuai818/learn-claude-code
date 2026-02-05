@@ -1,46 +1,48 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 06: Writing Rules
+第 06 课：编写规则
 ═══════════════════════════════════════════════════════════════════
 
-A **rule** is a constraint Claude follows when working on your project. For a game, this means you can define game rules — weapon damage ranges, enemy stats, room requirements — and Claude respects them every time it adds content.
+**规则**是 Claude 在处理你的项目时遵循的约束。对于游戏，这意味着你可以定义游戏规则 —— 武器伤害范围、敌人属性、房间要求 —— Claude 每次添加内容时都会遵守它们。
 
-## Where Rules Live
+## 规则存放位置
 
-In your `CLAUDE.md` file:
+在你的 `CLAUDE.md` 文件中：
 
 ```markdown
-## Rules
+## 规则
 
-- Always use pnpm, never npm
-- Don't modify files in /legacy
-- Run tests before committing
+- 始终使用 pnpm，从不使用 npm
+- 不要修改 /legacy 中的文件
+- 提交前运行测试
 ```
 
-## Rule Types
+## 规则类型
 
-**Style:** "Use named exports, not default exports"
+**风格：**"使用命名导出，而不是默认导出"
 
-**Boundaries:** "Don't modify anything in /packages/core"
+**边界：**"不要修改 /packages/core 中的任何内容"
 
-**Process:** "Run `pnpm test` after modifying test files"
+**流程：**"修改测试文件后运行 `pnpm test`"
 
-**Safety:** "Never commit API keys or secrets"
+**安全：**"永远不要提交 API 密钥或秘密"
 
-## Writing Good Rules
+## 编写好的规则
 
-| Vague             | Specific                                   |
-| ----------------- | ------------------------------------------ |
-| "Write good code" | "Add JSDoc comments to exported functions" |
-| "Be careful"      | "Ask before deleting files"                |
+| 模糊               | 具体                                       |
+| ------------------ | ------------------------------------------ |
+| "编写好代码"       | "为导出的函数添加 JSDoc 注释"              |
+| "小心"             | "删除文件前询问"                           |
 
-## Try It
+## 试试看
 
-1. Ask Claude to add rules:
+1. 要求 Claude 添加规则：
 
-   > Add a Rules section to dungeon/CLAUDE.md with these game rules: weapon damage 1-10, enemy HP 5-30, room descriptions 2-3 atmospheric sentences, every room must have at least one exit, no one-way doors.
+   > 向 dungeon/CLAUDE.md 添加一个规则部分，包含以下游戏规则：武器伤害 1-10，敌人 HP 5-30，房间描述 2-3 句氛围描写的句子，每个房间必须至少有一个出口，没有单向门。
 
-2. Try to break a rule:
+2. 尝试打破规则：
 
-   > Add a legendary sword that does 50 damage
+   > 添加一把造成 50 点伤害的传奇剑
 
-3. Claude should push back or adjust to follow your rules.
+3. Claude 应该会拒绝或调整以遵循你的规则。
+
+完成后告诉我，或如果你有问题！

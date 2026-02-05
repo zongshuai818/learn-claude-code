@@ -1,24 +1,24 @@
 ---
 name: lesson
-description: Create a structured lesson on a Claude Code topic
-argument-hint: "[topic]"
+description: 创建关于 Claude Code 主题的结构化课程
+argument-hint: "[主题]"
 ---
 
-# Create a Lesson
+# 创建课程
 
-Write a lesson about **$ARGUMENTS**.
+写一篇关于 **$ARGUMENTS** 的课程。
 
-## Structure
+## 结构
 
-1. **What is it?** - Brief explanation
-2. **Why use it?** - When and why it's useful
-3. **How it works** - Step-by-step with examples
-4. **Quick reference** - Cheat sheet / table
-5. **Try it** - Hands-on exercise
+1. **它是什么？** - 简要解释
+2. **为什么使用它？** - 何时以及为什么有用
+3. **它是如何工作的** - 分步示例
+4. **快速参考** - 备忘单/表格
+5. **试试看** - 动手练习
 
-## Guidelines
+## 指南
 
-- Keep explanations concise
-- Use tables for comparisons
-- Include real examples
-- End with something to try
+- 保持解释简洁
+- 使用表格进行比较
+- 包含真实示例
+- 以可以尝试的东西结束

@@ -1,7 +1,7 @@
-// Dungeons & Agents - Game Engine
-// Starter skeleton for lessons
+// 地下城与智能体 - 游戏引擎
+// 课程的入门骨架
 
-// ============ GAME STATE ============
+// ============ 游戏状态 ============
 
 let rooms = {}
 let items = {}
@@ -17,7 +17,7 @@ let talkingToId = null
 let conversationState = {}
 let storyFlags = new Set()
 
-// ============ DATA LOADING ============
+// ============ 数据加载 ============
 
 async function loadRooms() {
   const response = await fetch("data/rooms.json")
@@ -47,33 +47,33 @@ async function loadEnemies() {
   }
 }
 
-// ============ COMMAND PROCESSING ============
+// ============ 命令处理 ============
 
 function processCommand(input) {
   const command = input.trim().toLowerCase()
 
-  // Echo the command
+  // 回显命令
   print(`> ${input}`, "command")
 
-  // Handle commands
+  // 处理命令
   if (command === "help") {
-    print("Available commands:")
-    print("  help - Show this help message")
-    print("  look - Look around the room")
+    print("可用命令：")
+    print("  help - 显示此帮助信息")
+    print("  look - 查看周围环境")
     return
   }
 
   if (command === "look") {
-    print("You are in a dark cave. Exits: up")
+    print("你身处一个黑暗的洞穴。出口：上")
     return
   }
 
-  print("I don't understand that.", "error")
+  print("我不理解那个命令。", "error")
 }
 
-// ============ EVENT HANDLERS ============
+// ============ 事件处理器 ============
 
-// Handle input
+// 处理输入
 commandInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     const input = commandInput.value
@@ -84,10 +84,10 @@ commandInput.addEventListener("keydown", (e) => {
   }
 })
 
-// Focus input on click anywhere
+// 点击任意位置聚焦输入框
 document.addEventListener("click", () => commandInput.focus())
 
-// Button handlers
+// 按钮处理器
 document.querySelectorAll(".pixel-btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.stopPropagation()
@@ -98,13 +98,13 @@ document.querySelectorAll(".pixel-btn").forEach((btn) => {
   })
 })
 
-// Portrait close button
+// 肖像关闭按钮
 portraitClose.addEventListener("click", (e) => {
   e.stopPropagation()
   hidePortrait()
 })
 
-// Talk button - talk to first NPC in room
+// 对话按钮 - 与房间中的第一个 NPC 对话
 talkBtn.addEventListener("click", (e) => {
   e.stopPropagation()
   const npc = Object.values(characters).find((c) => c.location === currentRoom)
@@ -114,7 +114,7 @@ talkBtn.addEventListener("click", (e) => {
   }
 })
 
-// ============ INITIALIZATION ============
+// ============ 初始化 ============
 
 async function init() {
   await loadRooms()
@@ -124,8 +124,8 @@ async function init() {
 
   updateUI()
 
-  print("Welcome to Dungeons & Agents!")
-  print("Type 'help' for available commands.")
+  print("欢迎来到地下城与智能体！")
+  print("输入 'help' 查看可用命令。")
   print("")
   const room = rooms[currentRoom]
   if (room) {

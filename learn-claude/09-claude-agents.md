@@ -1,62 +1,64 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 09: Subagents
+第 09 课：子智能体
 ═══════════════════════════════════════════════════════════════════
 
-A **subagent** is a specialized helper that runs in its own context window. Claude spawns subagents for complex tasks — they work independently, then report back.
+**子智能体**是在自己的上下文窗口中运行的专业助手。Claude 生成子智能体来处理复杂任务 —— 它们独立工作，然后报告结果。
 
-For example, you can create agents to debug, design, implement features, etc.
+例如，你可以创建用于调试、设计、实现功能等的智能体。
 
-Why use subagents?
+为什么要使用子智能体？
 
-- **Preserve context** — keep exploration out of your main conversation
-- **Enforce constraints** — limit which tools a subagent can use
-- **Control costs** — route tasks to faster, cheaper models like Haiku
+- **保留上下文** —— 将探索保持在主对话之外
+- **强制执行约束** —— 限制子智能体可以使用哪些工具
+- **控制成本** —— 将任务路由到更快、更便宜的模型，如 Haiku
 
-## Built-in Subagents
+## 内置子智能体
 
-| Agent               | Purpose                    | Model        |
-| ------------------- | -------------------------- | ------------ |
-| **Explore**         | Search and understand code | Haiku (fast) |
-| **Plan**            | Research for planning      | Inherits     |
-| **General-purpose** | Complex multi-step tasks   | Inherits     |
+| 智能体             | 目的                       | 模型         |
+| ------------------ | -------------------------- | ------------ |
+| **Explore**        | 搜索和理解代码             | Haiku（快速）|
+| **Plan**           | 规划研究                   | 继承         |
+| **General-purpose**| 复杂多步骤任务             | 继承         |
 
-## Creating Custom Subagents
+## 创建自定义子智能体
 
-Run `/agents` to open the interactive subagent manager.
+运行 `/agents` 打开交互式子智能体管理器。
 
-**Subagent fields:**
+**子智能体字段：**
 
-- `name` — identifier (lowercase, hyphens)
-- `description` — tells Claude when to use this subagent
-- `tools` — which tools the subagent can use (optional)
-- `model` — `sonnet`, `opus`, `haiku`, or `inherit` (optional)
+- `name` — 标识符（小写，连字符）
+- `description` — 告诉 Claude 何时使用此子智能体
+- `tools` — 子智能体可以使用哪些工具（可选）
+- `model` — `sonnet`、`opus`、`haiku` 或 `inherit`（可选）
 
-## Background Agents
+## 后台智能体
 
-Run subagents in the background while you keep working:
+在继续工作的同时在后台运行子智能体：
 
-- **`Ctrl+B`** — background a running task
-- **"run this in the background"** — ask Claude directly
-- **`/tasks`** — check on background work
+- **`Ctrl+B`** — 将正在运行的任务置于后台
+- **"在后台运行这个"** — 直接询问 Claude
+- **`/tasks`** — 检查后台工作
 
-## Try It
+## 试试看
 
-1. Run `/agents`
+1. 运行 `/agents`
 
-2. Select **Create new agent** → **Project-level**
+2. 选择 **创建新智能体** → **项目级**
 
-3. Select **Generate with Claude** and describe the agent:
+3. 选择 **用 Claude 生成** 并描述智能体：
 
    ```
-   A character creator that makes NPCs for a dungeon game. It should read /skills/add-character/skill.md to understand the character creation process, read the rooms to understand the world, design characters with personality traits, and save them to data/characters.json.
+   一个为地下城游戏创建 NPC 的角色创建器。它应该阅读 /skills/add-character/skill.md 以了解角色创建过程，阅读房间以了解世界，设计有个性特征的角色，并将它们保存到 data/characters.json。
    ```
 
-4. Keep the default tools and model, pick a color, and save.
+4. 保持默认工具和模型，选择一种颜色，然后保存。
 
-5. Test it in the background:
+5. 在后台测试它：
 
-   > Create two new characters: a Dwarf NPC for the treasure-room and a Elf for the underground-lake. Run this in the background.
+   > 创建两个新角色：藏宝室的矮人 NPC 和地下湖的精灵。在后台运行这个。
 
-6. While it runs, check `/tasks` to see the background work.
+6. 运行时，使用 `/tasks` 查看后台工作。
 
-7. Test: `talk dwarf` should show the dwarf's greeting.
+7. 测试：`talk dwarf` 应该显示矮人的问候语。
+
+完成后告诉我，或如果你有问题！

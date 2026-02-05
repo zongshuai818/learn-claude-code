@@ -1,31 +1,33 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 04: Modes
+第 04 课：模式
 ═══════════════════════════════════════════════════════════════════
 
-You ask Claude to add a combat system to the dungeon game. It starts writing code immediately — but wait, should combat be turn-based or real-time? How should damage be calculated? Where does health get stored?
+你要求 Claude 为地下城游戏添加战斗系统。它立即开始编写代码 —— 但等等，战斗应该是回合制还是即时制？伤害应该如何计算？生命值存储在哪里？
 
-For complex tasks, you want Claude to _think before it codes_. That's what Plan Mode does.
+对于复杂的任务，你希望 Claude _在编码前先思考_。这就是计划模式的作用。
 
-Claude Code has three modes for different situations:
+Claude Code 有三种模式适用于不同情况：
 
-- **Normal Mode (Default)** — Claude proposes changes, you approve each one. Best for learning, reviewing unfamiliar code, or sensitive changes.
-- **Auto-Accept Mode** — Claude makes file edits without asking. You still approve shell commands. Best for trusted refactoring and bulk operations.
-- **Plan Mode** — Claude researches and plans before writing code. It explores the codebase, proposes an approach, then implements after you approve. Best for complex features and architectural changes.
+- **普通模式（默认）** — Claude 提出更改，你批准每个更改。最适合学习、审查不熟悉的代码或敏感更改。
+- **自动接受模式** — Claude 无需询问即可进行文件编辑。你仍然需要批准 shell 命令。最适合受信任的重构和批量操作。
+- **计划模式** — Claude 在编写代码前先研究和计划。它会探索代码库，提出方案，然后在你批准后实施。最适合复杂功能和架构更改。
 
-## Try It
+## 试试看
 
-1. Press `Shift+Tab` until you see "plan" in the mode indicator below the input field.
+1. 按 `Shift+Tab` 直到在输入框下方的模式指示器中看到 "plan"。
 
-2. Ask Claude to plan the inventory system:
+2. 要求 Claude 规划物品清单系统：
 
-   > Plan an inventory system for the dungeon game. Players can pick up items with 'take [item]', view inventory with 'inventory'. Items are stored in data/items.json.
+   > 为地下城游戏规划一个物品清单系统。玩家可以使用 'take [物品]' 拾取物品，使用 'inventory' 查看物品清单。物品存储在 data/items.json 中。
    >
-   > - Create pixel art for the items in the inventory.
-   > - Make sure the Inventory List (in Inventory Section) and Take Button (in Actions Section) are working correctly. The Take Button should be enabled when items are present in the current room.
-   > - Add a box at the top of the dialogue to display the items available in the current room.
+   > - 为物品清单中的物品创建像素艺术。
+   > - 确保物品清单（在物品清单区）和拾取按钮（在操作区）正常工作。当当前房间有物品时，应启用拾取按钮。
+   > - 在对话框顶部添加一个框，显示当前房间可用的物品。
 
-3. Review Claude's plan and approve.
+3. 审查 Claude 的计划并批准。
 
-> Tip: Select option 2 to maintain the course context.
+> 提示：选择选项 2 以保持课程上下文。
 
-4. Test: `look` should show items, `take sword` picks it up, `inventory` lists what you're carrying.
+4. 测试：`look` 应显示物品，`take sword` 拾取它，`inventory` 列出你携带的物品。
+
+完成后告诉我，或如果你有问题！

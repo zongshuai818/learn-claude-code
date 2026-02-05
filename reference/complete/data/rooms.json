@@ -1,14 +1,14 @@
 {
   "cave-entrance": {
-    "name": "Cave Entrance",
-    "description": "You stand at the entrance of a dark cave. Faint light filters in from outside.",
+    "name": "洞穴入口",
+    "description": "你站在一个黑暗洞穴的入口。微弱的光线从外面照射进来。",
     "exits": {
       "up": "narrow-tunnel"
     }
   },
   "narrow-tunnel": {
-    "name": "Narrow Tunnel",
-    "description": "A cramped passage with rough stone walls. The air grows cooler as you venture deeper.",
+    "name": "狭窄隧道",
+    "description": "一条狭窄的通道，石壁粗糙。当你深入时，空气变得更冷。",
     "exits": {
       "down": "cave-entrance",
       "up": "secret-garden",
@@ -17,30 +17,30 @@
     }
   },
   "treasure-room": {
-    "name": "Treasure Room",
-    "description": "A glittering chamber filled with gold coins and precious artifacts. Wealth beyond measure surrounds you.",
+    "name": "藏宝室",
+    "description": "一个金光闪闪的房间，满是金币和珍贵文物。周围是无法估量的财富。",
     "exits": {
       "left": "narrow-tunnel"
     }
   },
   "underground-lake": {
-    "name": "Underground Lake",
-    "description": "A vast cavern opening before you, with a dark underground lake stretching into the shadows. Strange echoes bounce off the water.",
+    "name": "地下湖",
+    "description": "一个巨大的洞穴出现在你面前，一个黑暗的地下湖延伸到阴影中。奇怪的回声在水面上回荡。",
     "exits": {
       "right": "narrow-tunnel",
       "left": "throne-room"
     }
   },
   "secret-garden": {
-    "name": "Secret Garden",
-    "description": "An impossible garden blooming underground, with flowers that glow softly in the darkness. You've found something magical.",
+    "name": "秘密花园",
+    "description": "一个不可能在地下绽放的花园，花朵在黑暗中柔和地发光。你发现了一些神奇的东西。",
     "exits": {
       "down": "narrow-tunnel"
     }
   },
   "throne-room": {
-    "name": "Throne Room",
-    "description": "A vast chamber with a throne of obsidian and gold. The room feels heavy with ancient power. Your only choice is to retreat.",
+    "name": "王座室",
+    "description": "一个巨大的房间，有一个黑曜石和金子制成的王座。房间充满了古老的力量。你唯一的选择是撤退。",
     "exits": {
       "right": "underground-lake"
     }

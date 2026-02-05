@@ -1,65 +1,67 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 07: Prompting
+第 07 课：提示词技巧
 ═══════════════════════════════════════════════════════════════════
 
-You ask Claude to "add combat" and it builds an elaborate system with classes, events, dice rolls, and status effects — when you just wanted the player to hit a goblin.
+你要求 Claude "添加战斗"，它构建了一个包含类、事件、骰子投掷和状态效果的复杂系统 —— 而你只是想让玩家击打地精。
 
-The difference between frustrating and productive sessions is how you prompt.
+令人沮丧和高效的会话之间的区别在于你如何编写提示词。
 
-## Anatomy of a Good Prompt
+## 好提示词的构成
 
-**Scope** — What files or areas to touch
+**范围** — 要处理哪些文件或区域
 
-> "In game.js, add an attack command..."
-> "Store enemies in data/enemies.json"
+> "在 game.js 中，添加一个攻击命令..."
+> "将敌人存储在 data/enemies.json 中"
 
-**Context** — What already exists?
+**上下文** — 已经存在什么？
 
-> "The game already has rooms, items, and a take command..."
+> "游戏已经有房间、物品和拾取命令..."
 
-**Constraints** — Follow the rules in CLAUDE.md
+**约束** — 遵循 CLAUDE.md 中的规则
 
-> "Enemy HP should be 5-30 per the game rules"
-> "Keep it simple — no status effects or special abilities"
+> "根据游戏规则，敌人 HP 应为 5-30"
+> "保持简单 —— 没有状态效果或特殊能力"
 
-**Acceptance criteria** — What does "done" look like?
+**验收标准** — "完成"是什么样的？
 
-> "Player types 'attack', sees damage dealt, goblin dies or player dies"
+> "玩家输入 'attack'，看到造成的伤害，地精死亡或玩家死亡"
 
-## Prompt Patterns
+## 提示词模式
 
-**Add content:**
+**添加内容：**
 
-> Add a [room/item/enemy] called [name] in [location]. It should [description].
+> 在 [位置] 添加一个 [房间/物品/敌人]，名为 [名称]。它应该 [描述]。
 
-**Add a feature:**
+**添加功能：**
 
-> Add [command] to game.js. It should [behavior]. Store data in [file].
+> 向 game.js 添加 [命令]。它应该 [行为]。将数据存储在 [文件] 中。
 
-**Fix a bug:**
+**修复 bug：**
 
-> When I [action], expected [X] but got [Y]. The problem is in [file].
+> 当我 [操作] 时，期望 [X] 但得到 [Y]。问题在 [文件] 中。
 
-**Explain:**
+**解释：**
 
-> How does the [system] work? Walk me through [specific flow].
+> [系统] 是如何工作的？带我了解 [具体流程]。
 
-## Try It
+## 试试看
 
-**Vague prompt:**
+**模糊的提示词：**
 
-> Add combat to the game
+> 为游戏添加战斗
 
-**Detailed prompt in plan mode:**
+**计划模式下的详细提示词：**
 
-> Add combat to the dungeon game in game.js:
+> 向 game.js 中的地下城游戏添加战斗：
 >
-> - Enemies stored in data/enemies.json (id, name, hp, damage, room)
-> - Player has hp (starts at 100)
-> - 'attack' command starts turn-based combat with enemy in current room
-> - Each turn: player deals 5 base damage plus weapon damage, enemy deals its damage
-> - At 0 hp: enemy defeated (remove from room) or player dies (game over)
-> - Add a goblin (30 hp, 3 damage) in narrow-tunnel
-> - Create a Portrait Display box on top of the items box that displays the NPCs (enemies and characters) name, portrait, and description. The box should display on room entry if the NPC is present.
+> - 敌人存储在 data/enemies.json 中（id、name、hp、damage、room）
+> - 玩家有 hp（初始为 100）
+> - 'attack' 命令开始与当前房间敌人的回合制战斗
+> - 每回合：玩家造成 5 点基础伤害加上武器伤害，敌人造成其伤害
+> - 在 0 hp 时：敌人被击败（从房间移除）或玩家死亡（游戏结束）
+> - 在 narrow-tunnel 中添加一个地精（30 hp，3 点伤害）
+> - 在物品框顶部创建一个肖像显示框，显示 NPC（敌人和角色）的名称、肖像和描述。如果 NPC 存在，该框应在进入房间时显示。
 
-Test it: go to the tunnel, type `attack`, fight the goblin.
+测试它：前往隧道，输入 `attack`，与地精战斗。
+
+完成后告诉我，或如果你有问题！

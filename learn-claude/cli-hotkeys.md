@@ -1,182 +1,182 @@
-# Claude CLI Hotkeys & Shortcuts Crash Course
+# Claude CLI 热键和快捷键速成课
 
-Press `?` anytime to see available shortcuts for your environment.
-
----
-
-## Essential Controls
-
-| Shortcut  | What it does                               |
-| --------- | ------------------------------------------ |
-| `Ctrl+C`  | Cancel current input or stop generation    |
-| `Ctrl+D`  | Exit Claude Code                           |
-| `Escape`  | Cancel current input                       |
-| `Esc Esc` | Rewind conversation/code to previous point |
+随时按 `?` 查看你环境中可用的快捷键。
 
 ---
 
-## Navigation & Input
+## 基本控制
 
-| Shortcut  | What it does                               |
-| --------- | ------------------------------------------ |
-| `Up/Down` | Navigate command history                   |
-| `Ctrl+R`  | Reverse search through history             |
-| `Ctrl+L`  | Clear terminal screen (keeps conversation) |
-
----
-
-## Multiline Input
-
-| Method       | How                                      |
-| ------------ | ---------------------------------------- |
-| Backslash    | Type `\` then `Enter`                    |
-| Option+Enter | macOS default                            |
-| Shift+Enter  | Works in iTerm2, WezTerm, Ghostty, Kitty |
-| Ctrl+J       | Line feed (works everywhere)             |
-| Paste        | Just paste multi-line content directly   |
-
-**Tip:** Run `/terminal-setup` to enable Shift+Enter in VS Code, Alacritty, etc.
+| 快捷键    | 功能                                   |
+| --------- | -------------------------------------- |
+| `Ctrl+C`  | 取消当前输入或停止生成                 |
+| `Ctrl+D`  | 退出 Claude Code                       |
+| `Escape`  | 取消当前输入                           |
+| `Esc Esc` | 将对话/代码回退到之前的位置            |
 
 ---
 
-## Quick Prefixes
+## 导航和输入
 
-| Prefix | What it does                               | Example            |
-| ------ | ------------------------------------------ | ------------------ |
-| `/`    | Run a command or skill                     | `/help`, `/commit` |
-| `!`    | Run bash directly (adds output to context) | `! git status`     |
-| `@`    | File path autocomplete                     | `@src/components/` |
-
----
-
-## Mode Switching
-
-| Shortcut             | What it does                                    |
-| -------------------- | ----------------------------------------------- |
-| `Shift+Tab`          | Cycle between Normal → Auto-Accept → Plan modes |
-| `Alt+P` / `Option+P` | Switch model without clearing prompt            |
-| `Alt+T` / `Option+T` | Toggle extended thinking                        |
+| 快捷键    | 功能                                   |
+| --------- | -------------------------------------- |
+| `Up/Down` | 浏览命令历史                           |
+| `Ctrl+R`  | 反向搜索历史                           |
+| `Ctrl+L`  | 清除终端屏幕（保留对话）               |
 
 ---
 
-## Text Editing
+## 多行输入
 
-| Shortcut | What it does                      |
-| -------- | --------------------------------- |
-| `Ctrl+K` | Delete from cursor to end of line |
-| `Ctrl+U` | Delete entire line                |
-| `Ctrl+Y` | Paste deleted text                |
-| `Alt+B`  | Move back one word                |
-| `Alt+F`  | Move forward one word             |
+| 方法           | 如何操作                               |
+| -------------- | -------------------------------------- |
+| 反斜杠         | 输入 `\` 然后按 `Enter`                |
+| Option+Enter   | macOS 默认                             |
+| Shift+Enter    | 适用于 iTerm2、WezTerm、Ghostty、Kitty |
+| Ctrl+J         | 换行（随处可用）                       |
+| 粘贴           | 直接粘贴多行内容                       |
 
-**macOS Note:** Alt shortcuts require Option as Meta. Set in:
-
-- **iTerm2:** Settings → Profiles → Keys → "Esc+"
-- **Terminal.app:** Settings → Profiles → Keyboard → "Use Option as Meta Key"
+**提示：**运行 `/terminal-setup` 以在 VS Code、Alacritty 等中启用 Shift+Enter。
 
 ---
 
-## During Tasks
+## 快速前缀
 
-| Shortcut | What it does                                     |
-| -------- | ------------------------------------------------ |
-| `Ctrl+B` | Background a running command (tmux: press twice) |
-| `Ctrl+O` | Toggle verbose output (see tool details)         |
-| `Ctrl+T` | Toggle task list visibility                      |
-
----
-
-## Images & External Editor
-
-| Shortcut           | What it does                        |
-| ------------------ | ----------------------------------- |
-| `Ctrl+V` / `Cmd+V` | Paste image from clipboard          |
-| `Ctrl+G`           | Open prompt in external text editor |
+| 前缀   | 功能                                   | 示例               |
+| ------ | -------------------------------------- | ------------------ |
+| `/`    | 运行命令或技能                           | `/help`, `/commit` |
+| `!`    | 直接运行 bash（将输出添加到上下文）      | `! git status`     |
+| `@`    | 文件路径自动补全                         | `@src/components/` |
 
 ---
 
-## Common Built-in Commands
+## 模式切换
 
-| Command    | Purpose                         |
-| ---------- | ------------------------------- |
-| `/help`    | Show all commands               |
-| `/clear`   | Clear conversation              |
-| `/compact` | Compress context to save tokens |
-| `/cost`    | Show token usage                |
-| `/plan`    | Enter plan mode                 |
-| `/review`  | Review code changes             |
-| `/commit`  | Generate commit message         |
-| `/undo`    | Revert last change              |
-| `/model`   | Change model                    |
-| `/memory`  | Edit CLAUDE.md files            |
-| `/init`    | Create CLAUDE.md for project    |
-| `/resume`  | Resume previous session         |
-| `/context` | Visualize context usage         |
-| `/doctor`  | Check installation health       |
-| `/vim`     | Enable vim editing mode         |
-| `/theme`   | Change color theme              |
-| `/tasks`   | List background tasks           |
-| `/export`  | Export conversation             |
+| 快捷键               | 功能                                           |
+| -------------------- | ---------------------------------------------- |
+| `Shift+Tab`          | 在普通 → 自动接受 → 计划模式之间循环           |
+| `Alt+P` / `Option+P` | 切换模型而不清除提示词                         |
+| `Alt+T` / `Option+T` | 切换扩展思考                                   |
 
 ---
 
-## Vim Mode (if enabled with `/vim`)
+## 文本编辑
 
-### Mode Switching
+| 快捷键   | 功能                               |
+| -------- | ---------------------------------- |
+| `Ctrl+K` | 删除从光标到行尾的内容             |
+| `Ctrl+U` | 删除整行                           |
+| `Ctrl+Y` | 粘贴删除的文本                     |
+| `Alt+B`  | 向后移动一个单词                   |
+| `Alt+F`  | 向前移动一个单词                   |
 
-| Key   | Action               |
-| ----- | -------------------- |
-| `Esc` | Enter NORMAL mode    |
-| `i`   | Insert before cursor |
-| `a`   | Insert after cursor  |
-| `I`   | Insert at line start |
-| `A`   | Insert at line end   |
-| `o`   | Open line below      |
-| `O`   | Open line above      |
+**macOS 提示：** Alt 快捷键需要 Option 作为 Meta 键。设置在：
 
-### Navigation (NORMAL mode)
+- **iTerm2:** 设置 → 配置文件 → 按键 → "Esc+"
+- **Terminal.app:** 设置 → 配置文件 → 键盘 → "使用 Option 作为 Meta 键"
 
-| Key       | Action             |
+---
+
+## 任务期间
+
+| 快捷键   | 功能                                           |
+| -------- | ---------------------------------------------- |
+| `Ctrl+B` | 将正在运行的命令置于后台（tmux：按两次）       |
+| `Ctrl+O` | 切换详细输出（查看工具详情）                   |
+| `Ctrl+T` | 切换任务列表可见性                             |
+
+---
+
+## 图片和外部编辑器
+
+| 快捷键             | 功能                               |
+| ------------------ | ---------------------------------- |
+| `Ctrl+V` / `Cmd+V` | 从剪贴板粘贴图片                   |
+| `Ctrl+G`           | 在外部文本编辑器中打开提示词       |
+
+---
+
+## 常用内置命令
+
+| 命令       | 用途                               |
+| ---------- | ---------------------------------- |
+| `/help`    | 显示所有命令                       |
+| `/clear`   | 清除对话                           |
+| `/compact` | 压缩上下文以节省 token             |
+| `/cost`    | 显示 token 使用量                  |
+| `/plan`    | 进入计划模式                       |
+| `/review`  | 审查代码更改                       |
+| `/commit`  | 生成提交消息                       |
+| `/undo`    | 撤销上次更改                       |
+| `/model`   | 更改模型                           |
+| `/memory`  | 编辑 CLAUDE.md 文件                |
+| `/init`    | 为项目创建 CLAUDE.md               |
+| `/resume`  | 恢复之前的会话                     |
+| `/context` | 可视化上下文使用情况               |
+| `/doctor`  | 检查安装健康状况                   |
+| `/vim`     | 启用 vim 编辑模式                  |
+| `/theme`   | 更改颜色主题                       |
+| `/tasks`   | 列出后台任务                       |
+| `/export`  | 导出对话                           |
+
+---
+
+## Vim 模式（如果用 `/vim` 启用）
+
+### 模式切换
+
+| 按键   | 操作               |
+| ------ | ------------------ |
+| `Esc`  | 进入 NORMAL 模式   |
+| `i`    | 在光标前插入       |
+| `a`    | 在光标后插入       |
+| `I`    | 在行首插入         |
+| `A`    | 在行尾插入         |
+| `o`    | 在下方打开新行     |
+| `O`    | 在上方打开新行     |
+
+### 导航（NORMAL 模式）
+
+| 按键      | 操作               |
 | --------- | ------------------ |
-| `h/j/k/l` | Left/down/up/right |
-| `w`       | Next word          |
-| `b`       | Previous word      |
-| `0`       | Beginning of line  |
-| `$`       | End of line        |
-| `gg`      | Beginning of input |
-| `G`       | End of input       |
+| `h/j/k/l` | 左/下/上/右        |
+| `w`       | 下一个单词         |
+| `b`       | 上一个单词         |
+| `0`       | 行首               |
+| `$`       | 行尾               |
+| `gg`      | 输入开头           |
+| `G`       | 输入结尾           |
 
-### Editing (NORMAL mode)
+### 编辑（NORMAL 模式）
 
-| Key  | Action             |
-| ---- | ------------------ |
-| `x`  | Delete character   |
-| `dd` | Delete line        |
-| `dw` | Delete word        |
-| `cc` | Change line        |
-| `cw` | Change word        |
-| `yy` | Yank (copy) line   |
-| `p`  | Paste after        |
-| `.`  | Repeat last change |
-
----
-
-## History Search (Ctrl+R)
-
-1. Press `Ctrl+R` to start
-2. Type to search previous commands
-3. `Ctrl+R` again cycles through matches
-4. `Tab` or `Esc` accepts and lets you edit
-5. `Enter` accepts and executes immediately
-6. `Ctrl+C` cancels
+| 按键   | 操作               |
+| ------ | ------------------ |
+| `x`    | 删除字符           |
+| `dd`   | 删除行             |
+| `dw`   | 删除单词           |
+| `cc`   | 更改行             |
+| `cw`   | 更改单词           |
+| `yy`   | 复制（yank）行     |
+| `p`    | 在后方粘贴         |
+| `.`    | 重复上次更改       |
 
 ---
 
-## Customizing Keybindings
+## 历史搜索（Ctrl+R）
 
-Run `/keybindings` to open `~/.claude/keybindings.json`.
+1. 按 `Ctrl+R` 开始
+2. 输入以搜索之前的命令
+3. 再次按 `Ctrl+R` 循环浏览匹配项
+4. `Tab` 或 `Esc` 接受并让你编辑
+5. `Enter` 接受并立即执行
+6. `Ctrl+C` 取消
 
-Example - rebind Ctrl+E to open external editor:
+---
+
+## 自定义键绑定
+
+运行 `/keybindings` 打开 `~/.claude/keybindings.json`。
+
+示例 - 重新绑定 Ctrl+E 打开外部编辑器：
 
 ```json
 {
@@ -191,7 +191,7 @@ Example - rebind Ctrl+E to open external editor:
 }
 ```
 
-### Chord Example (key sequence):
+### 和弦示例（按键序列）：
 
 ```json
 {
@@ -206,23 +206,23 @@ Example - rebind Ctrl+E to open external editor:
 }
 ```
 
-Changes apply automatically without restart.
+更改自动应用，无需重启。
 
 ---
 
-## Quick Reference Card
+## 快速参考卡
 
 ```
-ESSENTIALS          MODES               INPUT
+基本操作            模式                输入
 ─────────────       ─────────────       ─────────────
-Ctrl+C  Cancel      Shift+Tab  Cycle    /  Command
-Ctrl+D  Exit        Alt+P      Model    !  Bash mode
-Esc     Cancel      Alt+T      Think    @  File path
-Esc Esc Rewind
+Ctrl+C  取消        Shift+Tab  循环     /  命令
+Ctrl+D  退出        Alt+P      模型     !  Bash 模式
+Esc     取消        Alt+T      思考     @  文件路径
+Esc Esc 回退
 
-EDITING             NAVIGATION          TASKS
+编辑                导航                任务
 ─────────────       ─────────────       ─────────────
-Ctrl+K  Kill line   Up/Down    History  Ctrl+B  Background
-Ctrl+U  Clear line  Ctrl+R     Search   Ctrl+T  Task list
-Ctrl+Y  Paste       Ctrl+L     Clear    Ctrl+O  Verbose
+Ctrl+K  删除行      Up/Down    历史     Ctrl+B  后台
+Ctrl+U  清除行      Ctrl+R     搜索     Ctrl+T  任务列表
+Ctrl+Y  粘贴        Ctrl+L     清除     Ctrl+O  详细
 ```

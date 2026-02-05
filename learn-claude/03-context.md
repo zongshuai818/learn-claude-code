@@ -1,49 +1,51 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 03: Managing Context
+第 03 课：管理上下文
 ═══════════════════════════════════════════════════════════════════
 
-## What is context?
+## 什么是上下文？
 
-Context is everything Claude can "see" during a conversation — your messages, Claude's responses, files that were read, code that was written. It all lives in a **context window**, which has a size limit.
+上下文是 Claude 在对话中可以"看到"的所有内容 —— 你的消息、Claude 的回复、已读取的文件、已编写的代码。它们都存在于一个**上下文窗口**中，有大小限制。
 
-Think of it like a whiteboard. As you work, you fill it up. When it's full, older content gets erased to make room for new content. If important details get erased, Claude might forget things you already discussed.
+把它想象成一块白板。当你工作时，你会填满它。当它满了时，旧内容会被擦除以腾出空间给新内容。如果重要的细节被擦除了，Claude 可能会忘记你已经讨论过的事情。
 
-## Why it matters
+## 为什么它很重要
 
-You're deep in a debugging session. You've shared stack traces, explained the architecture, walked through files. Then Claude misses something you asked about earlier.
+你正在进行深入的调试会话。你已经分享了堆栈跟踪、解释了架构、浏览了文件。然后 Claude 错过了你之前问过的事情。
 
-What happened? The conversation got too long, and early context was pushed out. Here's how to manage that.
+发生了什么？对话太长了，早期上下文被挤出了。以下是如何管理它。
 
-## Key Commands
+## 关键命令
 
-**`/context`** — Shows how much of the context window you've used.
+**`/context`** — 显示你已使用的上下文窗口数量。
 
-**`/compact`** — Summarizes the conversation into key points, freeing up space while keeping important context.
+**`/compact`** — 将对话总结为关键点，释放空间同时保留重要上下文。
 
-**`/clear`** — Clear conversation history and free up context.
+**`/clear`** — 清除对话历史并释放上下文。
 
-## Try It
+## 试试看
 
-Time to add rooms to Dungeons & Agents.
+是时候为地下城与智能体添加房间了。
 
-1. Run `/context` to see how much of the context window you've used.
+1. 运行 `/context` 查看你已使用的上下文窗口数量。
 
-2. Ask Claude to expand the room system:
+2. 要求 Claude 扩展房间系统：
 
-   > Expand the dungeon game with more rooms. The cave-entrance already exists in data/rooms.json. Add 4 more connected rooms:
+   > 扩展地下城游戏，添加更多房间。cave-entrance 已存在于 data/rooms.json 中。添加 4 个相连的房间：
    >
-   > - "narrow-tunnel" (up from entrance) — cramped passage, exits: down, right, up, left
-   > - "treasure-room" (right of tunnel) — glittering chamber with gold coins, exits: left
-   > - "underground-lake" (left of tunnel) — vast cavern with dark water, exits: right, left
-   > - "secret-garden" (up from tunnel) — impossible flowers blooming underground, exits: down
+   > - "narrow-tunnel"（入口上方）— 狭窄的通道，出口：下、右、上、左
+   > - "treasure-room"（隧道右侧）— 金光闪闪的房间，有金币，出口：左
+   > - "underground-lake"（隧道左侧）— 巨大的洞穴，有黑暗的水域，出口：右、左
+   > - "secret-garden"（隧道上方）— 地下绽放的奇异花朵，出口：下
    >
-   > Update cave-entrance to have an exit up to narrow-tunnel.
-   > Update game.js so 'look' shows the current room description and exits, 'go [direction]' or arrow keys (ArrowUp/Down/Left/Right) to move between rooms.
-   > Update the mapLayout grid in ui/ui.js to show all rooms in their correct positions.
-   > Make sure the map and room positions match.
+   > 更新 cave-entrance，添加向上的出口到 narrow-tunnel。
+   > 更新 game.js，使 'look' 显示当前房间描述和出口，'go [方向]' 或方向键（ArrowUp/Down/Left/Right）在房间间移动。
+   > 在 ui/ui.js 中更新 mapLayout 网格，以正确位置显示所有房间。
+   > 确保地图和房间位置匹配。
 
-3. Test the game: explore with `go up`, arrow keys, `look`.
+3. 测试游戏：使用 `go up`、方向键、`look` 进行探索。
 
-4. Run `/context` again — notice the usage grew.
+4. 再次运行 `/context` — 注意使用量增加了。
 
-As you add more features: `/compact` when things get long, `/clear` when starting fresh.
+当你添加更多功能时：内容变长时使用 `/compact`，重新开始时使用 `/clear`。
+
+完成后告诉我，或如果你有问题！

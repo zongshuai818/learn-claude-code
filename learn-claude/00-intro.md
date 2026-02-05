@@ -1,35 +1,35 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 00: Welcome
+第 00 课：欢迎
 ═══════════════════════════════════════════════════════════════════
 
-Hey, I'm Claude, and I'll be your guide through this course.
+你好，我是 Claude，将成为你本课程的向导。
 
-I'm an AI model that can read your code, answer questions, write tests, fix bugs, and help you build things faster. This course will teach you how to get the most out of it.
+我是一个 AI 模型，可以阅读你的代码、回答问题、编写测试、修复 bug，并帮助你更快地构建项目。本课程将教你如何充分利用它。
 
-## Course commands
+## 课程命令
 
-| Command            | What it does                 |
+| 命令               | 功能                         |
 | ------------------ | ---------------------------- |
-| `/course`          | Show the dashboard           |
-| `/course next`     | Continue to your next lesson |
-| `/course 05`       | Jump to a specific lesson    |
-| `/course progress` | See detailed stats           |
-| `/course exit`     | Pause and save your position |
-| `/course update`   | Pull latest from GitHub      |
+| `/course`          | 显示仪表板                   |
+| `/course next`     | 继续下一课                   |
+| `/course 05`       | 跳转到特定课程               |
+| `/course progress` | 查看详细统计                 |
+| `/course exit`     | 暂停并保存位置               |
+| `/course update`   | 从 GitHub 拉取最新内容       |
 
-## Before we continue
+## 在我们继续之前
 
-When I make changes to your code, you'll see a diff:
+当我修改你的代码时，你会看到一个 diff：
 
 ```diff
-- old code (being removed)
-+ new code (being added)
+- 旧代码（将被删除）
++ 新代码（将被添加）
 ```
 
-You can **accept** or **reject** each change.
+你可以**接受**或**拒绝**每个更改。
 
 ---
 
-## Try it
+## 试试看
 
-When you're ready, type "next" to save your progress and continue to the first lesson.
+准备好后，输入 "next" 保存进度并继续第一节课。

@@ -1,16 +1,16 @@
 {
   "wizard": {
-    "name": "Elara the Wise",
-    "personality": "Ancient, mysterious, and deeply knowledgeable about the dungeon's secrets",
-    "knowledge": "Knows the dungeon is far older than most realize. The goblin in the tunnel is a guardian that must be defeated. The legendary sword aids greatly in combat. The throne room holds secrets for the truly brave.",
+    "name": "智者埃拉拉",
+    "personality": "古老、神秘，对地下城的秘密了如指掌",
+    "knowledge": "知道地下城比大多数人想象的要古老得多。隧道中的地精是一个必须被击败的守护者。传奇剑在战斗中大有帮助。王座室为真正勇敢的人保守着秘密。",
     "location": "secret-garden",
-    "greeting": "Ah, a traveler has found their way to my garden. I've been expecting someone. The dungeon reveals itself only to those who seek wisdom."
+    "greeting": "啊，一位旅行者找到了我的花园。我一直在等待某人。地下城只向那些寻求智慧的人展示自己。"
   },
   "treasure-guardian": {
-    "name": "Thorne Ironheart",
-    "personality": "Fearless, honorable, and fiercely protective of the dungeon's riches",
-    "knowledge": "Has faced the throne room's ancient evil. Brute strength alone won't defeat it - cunning and swiftness are key. True treasure is measured in character, not gold. Was once a seeker like the player, now guards the vault.",
+    "name": "索恩·铁心",
+    "personality": "无畏、正直，对地下城的财富保护有加",
+    "knowledge": "曾面对王座室的古老邪恶。仅靠蛮力无法击败它——狡猾和敏捷是关键。真正的财富是用品格来衡量，而不是黄金。曾经像玩家一样是一位寻求者，现在守护着宝库。",
     "location": "treasure-room",
-    "greeting": "Stand tall, adventurer. I am Thorne Ironheart, guardian of this hoard. Only those with courage and honor may touch what lies here."
+    "greeting": "站直了，冒险者。我是索恩·铁心，这个宝库的守护者。只有拥有勇气和荣誉的人才能触碰这里的东西。"
   }
 }

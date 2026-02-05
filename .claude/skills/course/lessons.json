@@ -1,47 +1,47 @@
 {
-  "title": "Learn Claude Code",
+  "title": "学习 Claude Code",
   "parts": [
     {
-      "name": "Introduction",
-      "lessons": [{ "id": "00", "title": "Welcome", "file": "00-intro.md" }]
+      "name": "介绍",
+      "lessons": [{ "id": "00", "title": "欢迎", "file": "00-intro.md" }]
     },
     {
-      "name": "Getting Started",
+      "name": "入门",
       "lessons": [
         {
           "id": "01",
-          "title": "Your First Session",
+          "title": "你的第一次会话",
           "file": "01-first-session.md"
         },
         {
           "id": "02",
-          "title": "CLI Navigation",
+          "title": "命令行导航",
           "file": "02-cli-navigation.md"
         },
-        { "id": "03", "title": "Managing Context", "file": "03-context.md" },
-        { "id": "04", "title": "Modes", "file": "04-modes.md" }
+        { "id": "03", "title": "管理上下文", "file": "03-context.md" },
+        { "id": "04", "title": "模式", "file": "04-modes.md" }
       ]
     },
     {
-      "name": "Project Context",
+      "name": "项目上下文",
       "lessons": [
         { "id": "05", "title": "CLAUDE.md", "file": "05-claude-md.md" },
-        { "id": "06", "title": "Writing Rules", "file": "06-writing-rules.md" },
-        { "id": "07", "title": "Prompting", "file": "07-prompting.md" },
+        { "id": "06", "title": "编写规则", "file": "06-writing-rules.md" },
+        { "id": "07", "title": "提示词技巧", "file": "07-prompting.md" },
         {
           "id": "08",
-          "title": "Creating Skills",
+          "title": "创建技能",
           "file": "08-creating-skills.md"
         }
       ]
     },
     {
-      "name": "Agents",
+      "name": "智能体",
       "lessons": [
-        { "id": "09", "title": "Subagents", "file": "09-claude-agents.md" },
+        { "id": "09", "title": "子智能体", "file": "09-claude-agents.md" },
         {
           "id": "10",
-          "title": "Application Agents",
+          "title": "应用智能体",
           "file": "10-application-agents.md"
         }
       ]

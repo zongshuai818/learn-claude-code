@@ -1,5 +1,5 @@
 {
-  "completed": ["00", "01"],
-  "current": "02",
+  "completed": ["00", "01", "02"],
+  "current": "03",
   "graduated": false
 }

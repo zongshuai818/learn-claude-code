@@ -1,36 +1,40 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 02: CLI Navigation
+第 02 课：命令行导航
 ═══════════════════════════════════════════════════════════════════
 
-Knowing a few CLI navigation shortcuts will make you much faster.
+了解几个命令行导航快捷键会让你效率更高。
 
-## Keyboard shortcuts
+## 键盘快捷键
 
-| Shortcut       | Action                              |
-| -------------- | ----------------------------------- |
-| `Enter`        | Send message                        |
-| `Option+Enter` | Add a newline (for multiline input) |
-| `Escape`       | Cancel current action / clear input |
-| `Ctrl+C`       | Interrupt Claude, then exit session |
-| `Ctrl+L`       | Clear screen                        |
-| `Up/Down`      | Navigate message history            |
+| 快捷键         | 操作                               |
+| -------------- | ---------------------------------- |
+| `Enter`        | 发送消息                           |
+| `Option+Enter` | 添加新行（用于多行输入）           |
+| `Escape`       | 取消当前操作 / 清除输入            |
+| `Ctrl+C`       | 中断 Claude，然后退出会话          |
+| `Ctrl+L`       | 清屏                               |
+| `Up/Down`      | 浏览消息历史                       |
 
-## Slash commands
+## 斜杠命令
 
-| Command    | What it does                           |
+| 命令       | 功能                                   |
 | ---------- | -------------------------------------- |
-| `/help`    | Show all commands                      |
-| `/clear`   | Clear conversation history             |
-| `/compact` | Summarize conversation to save context |
-| `/config`  | Open settings                          |
-| `/cost`    | Show token usage and cost              |
-| `/context` | Show context window usage              |
-| `/model`   | Change the model                       |
-| `/quit`    | Exit Claude Code                       |
+| `/help`    | 显示所有命令                           |
+| `/clear`   | 清除对话历史                           |
+| `/compact` | 总结对话以节省上下文空间               |
+| `/config`  | 打开设置                               |
+| `/cost`    | 显示 token 使用量和费用                |
+| `/context` | 显示上下文窗口使用情况                 |
+| `/model`   | 切换模型                               |
+| `/quit`    | 退出 Claude Code                       |
 
-## Try It
+## 试试看
 
-1. Type `/help` to see all available commands.
-2. Run `/model` and switch to **Haiku** for the rest of this course.
+这里有一些可以尝试的东西：
 
-> **Tip**: Haiku is faster and cheaper. It works well for learning exercises and straightforward tasks. Use Sonnet or Opus when you need deeper reasoning.
+1. 输入 `/help` 查看所有可用命令
+2. 运行 `/model` 并切换到 **Haiku** 完成本课程剩余部分
+
+> **提示**：Haiku 更快更便宜。它适用于学习练习和简单任务。当你需要更深层次的推理时，使用 Sonnet 或 Opus。
+
+完成后告诉我，或如果你有问题！

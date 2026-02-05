@@ -1,41 +1,41 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 05: CLAUDE.md
+第 05 课：CLAUDE.md
 ═══════════════════════════════════════════════════════════════════
 
-Every time you ask Claude to add a room, you explain the JSON format. Every time you want an item, you describe where the data lives. What if Claude just remembered?
+每次你要求 Claude 添加房间时，都要解释 JSON 格式。每次你想要一个物品时，都要描述数据存储在哪里。如果 Claude 能记住呢？
 
-**CLAUDE.md** is a file Claude reads automatically at session start. Add it to your project root to give Claude persistent context about your project.
+**CLAUDE.md** 是一个 Claude 在会话开始时自动读取的文件。将它添加到项目根目录，为 Claude 提供关于项目的持久上下文。
 
-## Example:
+## 示例：
 
 ```markdown
-# My Project
+# 我的项目
 
-## Overview
+## 概述
 
-React app with TypeScript and Tailwind.
+使用 TypeScript 和 Tailwind 的 React 应用。
 
-## Conventions
+## 规范
 
-- Functional components with hooks
-- Use named exports, not default exports
-- Don't modify files in /legacy
+- 使用函数组件和 hooks
+- 使用命名导出，而不是默认导出
+- 不要修改 /legacy 中的文件
 ```
 
-## Why It Matters
+## 为什么它很重要
 
-Without CLAUDE.md, you repeat yourself constantly. With it:
+没有 CLAUDE.md，你要不断重复自己。有了它：
 
-- Claude knows your project structure
-- Claude follows your conventions automatically
-- New team members get Claude up to speed instantly
+- Claude 了解你的项目结构
+- Claude 自动遵循你的规范
+- 新团队成员可以立即让 Claude 跟上进度
 
-## Try It
+## 试试看
 
-1. Create a CLAUDE.md for the dungeon game:
+1. 为地下城游戏创建一个 CLAUDE.md：
 
-   > Create a CLAUDE.md in dungeon/ documenting the game structure, how rooms.json works, and that room descriptions should be 2-3 atmospheric sentences. Also document that whenever rooms are added or modified, the mapLayout grid in ui/ui.js must be updated to keep the mini map synchronized with actual room connections.
+   > 在 dungeon/ 中创建一个 CLAUDE.md，记录游戏结构、rooms.json 的工作原理，以及房间描述应为 2-3 句氛围描写的句子。还要记录每当添加或修改房间时，必须更新 ui/ui.js 中的 mapLayout 网格，以保持小地图与实际房间连接同步。
 
-2. Test it: ask "What's the format for adding a new room?" — Claude should know without you explaining.
+2. 测试它：问 "添加新房间的格式是什么？" — Claude 应该无需你解释就能知道。
 
-Now that you have a CLAUDE.md, the next lesson shows you how to write rules that Claude actually follows.
+完成后告诉我，或如果你有问题！

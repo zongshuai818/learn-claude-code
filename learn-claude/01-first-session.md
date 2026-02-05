@@ -1,32 +1,34 @@
 ═══════════════════════════════════════════════════════════════════
-LESSON 01: Your First Session
+第 01 课：你的第一次会话
 ═══════════════════════════════════════════════════════════════════
 
-A session is an interactive conversation where Claude can see your project and make changes to your code.
+会话是一个交互式对话，Claude 可以查看你的项目并修改你的代码。
 
-Claude automatically reads your project structure.
+Claude 会自动读取你的项目结构。
 
-> **Tip**: You can quit the current session with `/exit` or `Ctrl+C` and continue the most recent session with `claude --continue`.
+> **提示**：你可以使用 `/exit` 或 `Ctrl+C` 退出当前会话，并使用 `claude --continue` 继续最近的会话。
 
-## Try It
+## 试试看
 
-Let's make your first change to Dungeons & Agents.
+让我们对地下城与智能体进行第一次修改。
 
-1. Ask Claude to add the first commands:
+1. 要求 Claude 添加第一个命令：
 
-   > Look at the dungeon game in dungeon/. Add a basic command system to game.js:
+   > 查看 dungeon/ 中的地下城游戏。向 game.js 添加一个基本命令系统：
    >
-   > - 'help' shows available commands
-   > - 'look' says "You are in a dark cave. Exits: up"
-   > - Unknown commands show "I don't understand that"
-   > - Enable the "Look" and "Take" buttons in the UI.
+   > - 'help' 显示可用命令
+   > - 'look' 显示 "你身处一个黑暗的洞穴。出口：上"
+   > - 未知命令显示 "我不理解那个命令"
+   > - 在 UI 中启用 "Look" 和 "Take" 按钮。
 
-2. Accept Claude's changes.
+2. 接受 Claude 的更改。
 
-3. Start the game server in a **separate terminal**:
+3. 在**单独的终端**中启动游戏服务器：
 
    ```bash
    node dungeon/server.js
    ```
 
-4. Open http://localhost:3000 and try the new help command.
+4. 打开 http://localhost:3000 并尝试新的 help 命令。
+
+完成后告诉我，或如果你有问题！

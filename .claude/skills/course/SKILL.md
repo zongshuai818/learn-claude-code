@@ -126,6 +126,7 @@ argument-hint: "[课程编号 | next | progress | reset | exit | update | comple
 |       |                            |.
 |       |      地下城与智能体        |.
 |       |     作者 @delba_oliveira   |.
+|       |     中文翻译 @kylin帅        |.
 |       |                            |.
 |       |           ──═✦═──          |.
 |       |   _________________________|___
